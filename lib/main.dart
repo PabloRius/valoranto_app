@@ -32,6 +32,7 @@ class _BackgroundWidgetState extends State<BackgroundWidget>{
       else if  (index == "assets/images/map_icons/pearl.png")   {_currentMap = "assets/images/maps/pearl.jpg";}
     });
   }
+
   @override
   Widget build(BuildContext context){
     print("Building: $_currentMap");
