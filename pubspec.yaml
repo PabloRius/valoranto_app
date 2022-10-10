@@ -80,6 +80,13 @@ flutter:
     - assets/images/map_icons/split.png
 
     - assets/images/maps/ascent.jpg
+    - assets/images/maps/bind.jpg
+    - assets/images/maps/breeze.png
+    - assets/images/maps/split.jpg
+    - assets/images/maps/icebox.jpg
+    - assets/images/maps/heaven.jpg
+    - assets/images/maps/fracture.jpg
+    - assets/images/maps/pearl.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

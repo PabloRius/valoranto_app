@@ -10,6 +10,72 @@ void main() {
   runApp(const MyApp());
 }
 
+class BackgroundWidget extends StatefulWidget{
+  const BackgroundWidget({super.key});
+
+  @override
+  State<BackgroundWidget> createState() => _BackgroundWidgetState();
+}
+
+class _BackgroundWidgetState extends State<BackgroundWidget>{
+  String _currentMap = "assets/images/Main_Wallpaper.png";
+  void _toggleBackground(index){
+    print(index);
+    setState(() {
+      if       (index == "assets/images/map_icons/ascent.png")  {_currentMap = "assets/images/maps/ascent.jpg";}
+      else if  (index == "assets/images/map_icons/bind.png")    {_currentMap = "assets/images/maps/bind.jpg";}
+      else if  (index == "assets/images/map_icons/breeze.png")  {_currentMap = "assets/images/maps/breeze.png";}
+      else if  (index == "assets/images/map_icons/split.png")   {_currentMap = "assets/images/maps/split.jpg";}
+      else if  (index == "assets/images/map_icons/icebox.png")  {_currentMap = "assets/images/maps/icebox.jpg";}
+      else if  (index == "assets/images/map_icons/heaven.png")  {_currentMap = "assets/images/maps/heaven.jpg";}
+      else if  (index == "assets/images/map_icons/fracture.png"){_currentMap = "assets/images/maps/fracture.jpg";}
+      else if  (index == "assets/images/map_icons/pearl.png")   {_currentMap = "assets/images/maps/pearl.jpg";}
+    });
+  }
+  @override
+  Widget build(BuildContext context){
+    print("Building: $_currentMap");
+    return Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(_currentMap), //Background Image
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Container(
+            alignment: Alignment.bottomCenter,
+            child: CarouselSlider(
+                items: globals.carouselImages.map((i) {
+                  return Builder(
+                    builder: (BuildContext context_){
+                      return GestureDetector(
+                          onTap: (){
+                            print("Cambiando Fondo");
+                            _toggleBackground(i);
+                          },
+                          child:Container(
+                            width: MediaQuery.of(context_).size.width,
+                            decoration: BoxDecoration(
+                                image: DecorationImage(image: AssetImage(i))
+                            ),
+                          )
+
+                      );
+                    },
+                  );}).toList(),
+                options: CarouselOptions(
+                    viewportFraction: 0.25,
+                    height: 300,
+                    autoPlay: false,
+                    enableInfiniteScroll: false,
+                    initialPage: 1
+                )
+            )
+        )
+    );
+  }
+}
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -31,23 +97,12 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-
-  final carouselImages = [
-    "assets/images/map_icons/ascent.png",
-    "assets/images/map_icons/bind.png",
-    "assets/images/map_icons/breeze.png",
-    "assets/images/map_icons/fracture.png",
-    "assets/images/map_icons/heaven.png",
-    "assets/images/map_icons/icebox.png",
-    "assets/images/map_icons/pearl.png",
-    "assets/images/map_icons/split.png",
-  ];
-
   @override
   Widget build(BuildContext context) {
 
@@ -75,53 +130,10 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body:
-      Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(getCurrentBackground()), //Background Image
-              fit: BoxFit.cover,
-            ),
-          ),
-          child: Container(
-              alignment: Alignment.bottomCenter,
-              child: CarouselSlider(
-                  items: carouselImages.map((i) {
-                    return Builder(
-                      builder: (BuildContext context){
-                        assert(debugCheckHasMaterial(context));
-                        return InkWell(
-                            onTap: (){
-                              print("Cambiando Fondo");
-                              globals.currentBackground = i;
-                            },
-                            child:Container(
-                              width: MediaQuery.of(context).size.width,
-                              decoration: BoxDecoration(
-                                  image: DecorationImage(image: AssetImage(i))
-                              ),
-                            )
-
-                        );
-                      },
-                    );}).toList(),
-                  options: CarouselOptions(
-                      viewportFraction: 0.25,
-                      height: 300,
-                      autoPlay: false,
-                      enableInfiniteScroll: false,
-                      initialPage: 1
-                  )
-              )
-          )
-      ),
+        const Center(
+          child:
+          BackgroundWidget(),
+        )
     );
-  }
-
-  String getCurrentBackground() {
-    if (globals.currentBackground == "assets/images/map_icons/ascent.png"){
-      return "assets/images/maps/ascent.jpg";
-    }else{
-      return "assets/images/Main_Wallpaper.png";
-    }
   }
 }
