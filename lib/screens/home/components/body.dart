@@ -82,14 +82,19 @@ class _BodyState extends State<Body> {
                       onTap: (){
                         _toggleBackground(i);
                       },
-                      child: Container(
-                          width: MediaQuery.of(context).size.width,
-                          margin: const EdgeInsets.symmetric(horizontal: 5.0),
-                          decoration: BoxDecoration(
-                              border: Border.all(color: isCurrentMap(i) ? Colors.redAccent : Colors.transparent, width: 2.0)
+                      child: Stack(
+                        children: [
+                          Container(
+                              width: MediaQuery.of(context).size.width,
+                              height: MediaQuery.of(context).size.height,
+                              margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                              decoration: BoxDecoration(
+                                  border: Border.all(color: isCurrentMap(i) ? Colors.redAccent : Colors.transparent, width: 2.0)
+                              ),
+                            child: Image.asset(i, fit: BoxFit.cover),
                           ),
-                          child: Image.asset(i,fit: BoxFit.cover,)
-
+                          Center(child: Text(i.split("/")[2].split(".")[0].toUpperCase(), style: tungstenBoldFont(Colors.white, 26),))
+                        ],
                       ),
                     );
                   },

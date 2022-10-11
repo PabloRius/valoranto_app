@@ -57,3 +57,21 @@ final carouselImages = [
   "assets/images/pearl.jpg",
   "assets/images/split.jpg",
 ];
+
+
+
+TextStyle tungstenBoldFont(Color color, double size){
+  return TextStyle(
+    color: color,
+    fontFamily: "Tungsten",
+    fontSize: size,
+  );
+} //Tungsten Bold Font Reusable
+
+TextStyle valorantFont(Color color, double size){
+  return TextStyle(
+    color: color,
+    fontFamily: "Tungsten",
+    fontSize: size,
+  );
+}

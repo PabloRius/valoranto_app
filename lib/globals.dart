@@ -60,20 +60,3 @@ final carouselImages = [
   "assets/images/map_icons/pearl.png",
   "assets/images/map_icons/split.png",
 ];
-
-
-TextStyle tungstenBoldFont(Color color, double size){
-  return TextStyle(
-    color: color,
-    fontFamily: "Tungsten",
-    fontSize: size,
-  );
-} //Tungsten Bold Font Reusable
-
-TextStyle valorantFont(Color color, double size){
-  return TextStyle(
-    color: color,
-    fontFamily: "Tungsten",
-    fontSize: size,
-  );
-}
