@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
+import '../../../globals.dart';
 import 'lockIn_button.dart';
 
 
@@ -29,40 +30,47 @@ class _BodyState extends State<Body> {
     return false;
   }
 
+  Text mapTitleGen(String text, double opacity){
+    return Text(text, style: tungstenBoldFont(Colors.white, 125, opacity: opacity),);
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration:  BoxDecoration(
-        image: DecorationImage(
-          image: AssetImage(_currentMap), //Background Image
-          fit: BoxFit.cover,
-        ),
-      ),
-      child: Align(
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          margin: const EdgeInsets.only(bottom: 30.0),
-          height: 400,
-          child: Column(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children:  [
-                const Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    'SELECT YOUR MAP',
-                    style: TextStyle(
-                        color: Colors.white
-                    ),
+    return Stack(
+      children: [
+        Column(children: [
+          mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.7),
+        ],),
+        Container(
+          decoration:  BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(_currentMap), //Background Image
+              fit: BoxFit.cover,
+            ),
+          ),
+          child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
+              margin: const EdgeInsets.only(bottom: 30.0),
+              height: 400,
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children:  [
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Text('SELECT YOUR MAP', style: valorantFont(Colors.white, 16),
 
-                  ),
-                ),
-                const Divider(),
-                buildCarouselSlider(),
-                const Divider(),
-                const LockInButton(),
-              ]),
+                      ),
+                    ),
+                    const Divider(),
+                    buildCarouselSlider(),
+                    const Divider(),
+                    const LockInButton(),
+                  ]),
+            ),
+          ),
         ),
-      ),
+      ],
     );
   }
 
@@ -81,6 +89,7 @@ class _BodyState extends State<Body> {
                     return GestureDetector(
                       onTap: (){
                         _toggleBackground(i);
+                        selectedMap = i;
                       },
                       child: Stack(
                         children: [

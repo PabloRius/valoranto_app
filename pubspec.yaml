@@ -70,11 +70,7 @@ flutter:
     - family: Tungsten
       fonts:
         - asset: assets/Fonts/Tungsten.ttf
-
-    - family: TungstenBold
-      fonts:
-        - asset: assets/Fonts/Tungsten_bold.ttf
-
+      
     - family: Valorant
       fonts:
         - asset: assets/Fonts/Valorant.ttf

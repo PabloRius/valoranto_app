@@ -60,9 +60,9 @@ final carouselImages = [
 
 
 
-TextStyle tungstenBoldFont(Color color, double size){
+TextStyle tungstenBoldFont(Color color, double size, {double opacity = 1}){
   return TextStyle(
-    color: color,
+    color: Color.fromRGBO(255, 255, 255, opacity),
     fontFamily: "Tungsten",
     fontSize: size,
   );
@@ -71,7 +71,7 @@ TextStyle tungstenBoldFont(Color color, double size){
 TextStyle valorantFont(Color color, double size){
   return TextStyle(
     color: color,
-    fontFamily: "Tungsten",
+    fontFamily: "Valorant",
     fontSize: size,
   );
 }
