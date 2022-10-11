@@ -62,31 +62,9 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/images/Viper.png
-    - assets/images/Main_Wallpaper.png
-    - assets/images/select_button.png
+    - assets/images/
+    - assets/icons/
 
-    - assets/images/Icons/notification.png
-    - assets/images/Icons/back.png
-
-
-    - assets/images/map_icons/ascent.png
-    - assets/images/map_icons/bind.png
-    - assets/images/map_icons/breeze.png
-    - assets/images/map_icons/fracture.png
-    - assets/images/map_icons/heaven.png
-    - assets/images/map_icons/icebox.png
-    - assets/images/map_icons/pearl.png
-    - assets/images/map_icons/split.png
-
-    - assets/images/maps/ascent.jpg
-    - assets/images/maps/bind.jpg
-    - assets/images/maps/breeze.jpg
-    - assets/images/maps/split.jpg
-    - assets/images/maps/icebox.jpg
-    - assets/images/maps/heaven.jpg
-    - assets/images/maps/fracture.jpg
-    - assets/images/maps/pearl.jpg
 
   fonts:
     - family: Tungsten

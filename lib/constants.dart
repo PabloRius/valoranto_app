@@ -1,8 +1,5 @@
-library my_prk.globals;
-
 import 'package:flutter/material.dart';
 
-/*____________________RED______________________*/
 const kRed0 = Color(0x00ffc2c3);
 const kRed10 = Color(0x00ffb3b5);
 const kRed20 = Color(0xFFA4A7);
@@ -23,7 +20,7 @@ const kRed700 = Color(0x7F0000);
 const kRed800 = Color(0x700000);
 const kRed900 = Color(0x620000);
 
-const kRedMain = Color(0xFF4657);
+const kRedMain = Color(0xffFF4657);
 
 /*____________________GRAY______________________*/
 const kGray0 = Color(0xFAFFFF);
@@ -49,31 +46,14 @@ const kGray900 = Color(0x14181B);
 const kGrayMain = Color(0x1F2326);
 
 
-String selectedMap = "None";
+
 final carouselImages = [
-  "assets/images/map_icons/ascent.png",
-  "assets/images/map_icons/bind.png",
-  "assets/images/map_icons/breeze.png",
-  "assets/images/map_icons/fracture.png",
-  "assets/images/map_icons/heaven.png",
-  "assets/images/map_icons/icebox.png",
-  "assets/images/map_icons/pearl.png",
-  "assets/images/map_icons/split.png",
+  "assets/images/ascent.jpg",
+  "assets/images/bind.jpg",
+  "assets/images/breeze.jpg",
+  "assets/images/fracture.jpg",
+  "assets/images/heaven.jpg",
+  "assets/images/icebox.jpg",
+  "assets/images/pearl.jpg",
+  "assets/images/split.jpg",
 ];
-
-
-TextStyle tungstenBoldFont(Color color, double size){
-  return TextStyle(
-    color: color,
-    fontFamily: "Tungsten",
-    fontSize: size,
-  );
-} //Tungsten Bold Font Reusable
-
-TextStyle valorantFont(Color color, double size){
-  return TextStyle(
-    color: color,
-    fontFamily: "Tungsten",
-    fontSize: size,
-  );
-}

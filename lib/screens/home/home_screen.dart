@@ -1,18 +1,16 @@
 import 'package:flutter/material.dart';
-
-
+import 'components/body.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key, required this.title});
-
-  final String title;
+  const HomeScreen({super.key});
 
 
   @override
-  State<HomeScreen> createState() => _HomeScreen();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
-class _HomeScreen extends State<HomeScreen> {
+class _HomeScreenState extends State<HomeScreen> {
+
   @override
   Widget build(BuildContext context) {
 
@@ -22,7 +20,7 @@ class _HomeScreen extends State<HomeScreen> {
         backgroundColor: Colors.transparent,
         leading: IconButton(
             icon: const ImageIcon(
-              AssetImage("assets/images/Icons/back.png"),
+              AssetImage("assets/icons/back.png"),
               color: Colors.white,
             ),
             onPressed: () => {}
@@ -32,18 +30,16 @@ class _HomeScreen extends State<HomeScreen> {
         actions: [
           IconButton(
               icon: const ImageIcon(
-                AssetImage("assets/images/Icons/notification.png"),
+                AssetImage("assets/icons/notification.png"),
                 color: Colors.white,
               ),
               onPressed: () => {}
           )
         ],
+        elevation: 0,
       ),
-      body:
-        const Center(
-          child:
-          /*BackgroundWidget(),*/
-        )
+      body: const Body(),
     );
   }
 }
+
