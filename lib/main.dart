@@ -32,13 +32,50 @@ class _BackgroundWidgetState extends State<BackgroundWidget>{
     });
   }
 
-  TextStyle tungstenBoldFont(){
-    return const TextStyle(
-      color: Colors.white,
-      fontFamily: "Tungsten",
-      fontSize: 24,
+  bool isCurrentMap(index){
+    if (_currentMap != "assets/images/Main_Wallpaper.png"){
+      String realIndex = index.split("/")[3].split(".")[0];
+      String realCurrentMap = _currentMap.split("/")[3].split(".")[0];
+      print("Index $realIndex");
+      print("Current map: $realCurrentMap");
+      if (realIndex == realCurrentMap){return true;}else{return false;}
+    }
+    return false;
+  }
+
+  CarouselSlider mapSlider(){
+    return CarouselSlider(
+
+        items: globals.carouselImages.map((i) {
+          return Builder(
+            builder: (BuildContext context_){
+              return GestureDetector(
+
+                  onTap: (){
+                    _toggleBackground(i);
+                    globals.selectedMap = i;
+                  },
+                  child:Container(
+                      width: 100,
+                      height: 100,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: isCurrentMap(i) ? Colors.redAccent : Colors.transparent, width: 2.0)
+                      ),
+
+                      child: Image.asset(i,fit: BoxFit.cover,)
+                  )
+
+              );
+            },
+          );}).toList(),
+        options: CarouselOptions(
+          viewportFraction: 0.28,
+          autoPlay: false,
+          enableInfiniteScroll: false,
+          initialPage: 1,
+        )
     );
-  } //Tungsten Bold Font Reusable
+  }
 
   @override
   Widget build(BuildContext context){
@@ -49,41 +86,15 @@ class _BackgroundWidgetState extends State<BackgroundWidget>{
             fit: BoxFit.cover,
           ),
         ),
-        child: Container(
-            alignment: Alignment.bottomLeft,
-            child: CarouselSlider(
+        child: Align(
+            alignment: Alignment.bottomCenter,
+            child: Container(
 
-                items: globals.carouselImages.map((i) {
-                  return Builder(
-                    builder: (BuildContext context_){
-                      return GestureDetector(
-
-                          onTap: (){
-                            _toggleBackground(i);
-                            globals.selectedMap = i;
-                          },
-                          child:Container(
-                              width: 100,
-
-                              decoration: BoxDecoration(
-                                 image: DecorationImage(image:  AssetImage(i), fit: BoxFit.fitWidth),
-                                  border: Border.all(color: Colors.white)
-                              ),
-
-                              child: Center(
-                                child:Text(i.split("/")[3].split(".")[0].toUpperCase(), style: tungstenBoldFont(),),
-                              )
-                          )
-
-                      );
-                    },
-                  );}).toList(),
-                options: CarouselOptions(
-                    viewportFraction: 0.28,
-                    autoPlay: false,
-                    enableInfiniteScroll: false,
-                    initialPage: 1,
-                )
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.transparent,
+                margin: const EdgeInsets.only(bottom: 10.0),
+                child: mapSlider()
             )
         )
     );
@@ -97,6 +108,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.red,
@@ -144,10 +156,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
       body:
-        const Center(
-          child:
-          BackgroundWidget(),
-        )
+        const BackgroundWidget()
     );
   }
 }
