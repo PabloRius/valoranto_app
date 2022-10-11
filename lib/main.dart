@@ -57,17 +57,19 @@ class _BackgroundWidgetState extends State<BackgroundWidget>{
                   return Builder(
                     builder: (BuildContext context_){
                       return GestureDetector(
+
                           onTap: (){
                             _toggleBackground(i);
+                            globals.selectedMap = i;
                           },
                           child:Container(
-                            width: MediaQuery.of(context_).size.width*0.25,
-                            decoration: BoxDecoration(
-                                image: DecorationImage(image:  AssetImage(i))
-                            ),
-                            child: Center(
-                              child:Text(i.split("/")[3].split(".")[0].toUpperCase(), style: tungstenBoldFont(),),
-                            )
+                              width: MediaQuery.of(context_).size.width*0.25,
+                              decoration: BoxDecoration(
+                                  image: DecorationImage(image:  AssetImage(i))
+                              ),
+                              child: Center(
+                                child:Text(i.split("/")[3].split(".")[0].toUpperCase(), style: tungstenBoldFont(),),
+                              )
                           )
 
                       );
@@ -75,7 +77,6 @@ class _BackgroundWidgetState extends State<BackgroundWidget>{
                   );}).toList(),
                 options: CarouselOptions(
                     viewportFraction: 0.28,
-                    height: 350,
                     autoPlay: false,
                     enableInfiniteScroll: false,
                     initialPage: 1,

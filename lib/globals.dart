@@ -1,6 +1,6 @@
 library my_prk.globals;
 
-String currentBackground = "assets/images/Main_Wallpaper.png";
+String selectedMap = "None";
 final carouselImages = [
   "assets/images/map_icons/ascent.png",
   "assets/images/map_icons/bind.png",
