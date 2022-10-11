@@ -20,11 +20,10 @@ class BackgroundWidget extends StatefulWidget{
 class _BackgroundWidgetState extends State<BackgroundWidget>{
   String _currentMap = "assets/images/Main_Wallpaper.png";
   void _toggleBackground(index){
-    print(index);
     setState(() {
       if       (index == "assets/images/map_icons/ascent.png")  {_currentMap = "assets/images/maps/ascent.jpg";}
       else if  (index == "assets/images/map_icons/bind.png")    {_currentMap = "assets/images/maps/bind.jpg";}
-      else if  (index == "assets/images/map_icons/breeze.png")  {_currentMap = "assets/images/maps/breeze.png";}
+      else if  (index == "assets/images/map_icons/breeze.png")  {_currentMap = "assets/images/maps/breeze.jpg";}
       else if  (index == "assets/images/map_icons/split.png")   {_currentMap = "assets/images/maps/split.jpg";}
       else if  (index == "assets/images/map_icons/icebox.png")  {_currentMap = "assets/images/maps/icebox.jpg";}
       else if  (index == "assets/images/map_icons/heaven.png")  {_currentMap = "assets/images/maps/heaven.jpg";}
@@ -33,9 +32,16 @@ class _BackgroundWidgetState extends State<BackgroundWidget>{
     });
   }
 
+  TextStyle tungstenBoldFont(){
+    return const TextStyle(
+      color: Colors.white,
+      fontFamily: "Tungsten",
+      fontSize: 24,
+    );
+  } //Tungsten Bold Font Reusable
+
   @override
   Widget build(BuildContext context){
-    print("Building: $_currentMap");
     return Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -44,32 +50,35 @@ class _BackgroundWidgetState extends State<BackgroundWidget>{
           ),
         ),
         child: Container(
-            alignment: Alignment.bottomCenter,
+            alignment: Alignment.bottomLeft,
             child: CarouselSlider(
+
                 items: globals.carouselImages.map((i) {
                   return Builder(
                     builder: (BuildContext context_){
                       return GestureDetector(
                           onTap: (){
-                            print("Cambiando Fondo");
                             _toggleBackground(i);
                           },
                           child:Container(
-                            width: MediaQuery.of(context_).size.width,
+                            width: MediaQuery.of(context_).size.width*0.25,
                             decoration: BoxDecoration(
-                                image: DecorationImage(image: AssetImage(i))
+                                image: DecorationImage(image:  AssetImage(i))
                             ),
+                            child: Center(
+                              child:Text(i.split("/")[3].split(".")[0].toUpperCase(), style: tungstenBoldFont(),),
+                            )
                           )
 
                       );
                     },
                   );}).toList(),
                 options: CarouselOptions(
-                    viewportFraction: 0.25,
-                    height: 300,
+                    viewportFraction: 0.28,
+                    height: 350,
                     autoPlay: false,
                     enableInfiniteScroll: false,
-                    initialPage: 1
+                    initialPage: 1,
                 )
             )
         )
@@ -118,7 +127,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
             onPressed: () => {}
         ),
-        title: const Text("Valorant App"),
+        title: const Text("Garius#GTF"),
         centerTitle: true,
         actions: [
           IconButton(
