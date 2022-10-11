@@ -54,6 +54,18 @@ class _BodyState extends State<Body> {
             Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.5)),
             Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.4)),
           ],),
+        Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.bottomCenter,
+              end: Alignment.topCenter,
+              colors: [
+                Colors.black,
+                Colors.transparent
+              ]
+            )
+          ) ,
+        ),
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
