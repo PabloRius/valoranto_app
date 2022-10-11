@@ -38,9 +38,6 @@ class _BodyState extends State<Body> {
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Column(children: [
-          mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.7),
-        ],),
         Container(
           decoration:  BoxDecoration(
             image: DecorationImage(
@@ -48,26 +45,34 @@ class _BodyState extends State<Body> {
               fit: BoxFit.cover,
             ),
           ),
-          child: Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              margin: const EdgeInsets.only(bottom: 30.0),
-              height: 400,
-              child: Column(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children:  [
-                    Align(
-                      alignment: Alignment.bottomCenter,
-                      child: Text('SELECT YOUR MAP', style: valorantFont(Colors.white, 16),
+        ),
+        Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.7)),
+            Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.6)),
+            Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.5)),
+            Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.4)),
+          ],),
+        Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            margin: const EdgeInsets.only(bottom: 30.0),
+            height: 400,
+            child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children:  [
+                  Align(
+                    alignment: Alignment.bottomCenter,
+                    child: Text('SELECT YOUR MAP', style: valorantFont(Colors.white, 16),
 
-                      ),
                     ),
-                    const Divider(),
-                    buildCarouselSlider(),
-                    const Divider(),
-                    const LockInButton(),
-                  ]),
-            ),
+                  ),
+                  const Divider(),
+                  buildCarouselSlider(),
+                  const Divider(),
+                  const LockInButton(),
+                ]),
           ),
         ),
       ],
