@@ -63,10 +63,13 @@ class _BackgroundWidgetState extends State<BackgroundWidget>{
                             globals.selectedMap = i;
                           },
                           child:Container(
-                              width: MediaQuery.of(context_).size.width*0.25,
+                              width: 100,
+
                               decoration: BoxDecoration(
-                                  image: DecorationImage(image:  AssetImage(i))
+                                 image: DecorationImage(image:  AssetImage(i), fit: BoxFit.fitWidth),
+                                  border: Border.all(color: Colors.white)
                               ),
+
                               child: Center(
                                 child:Text(i.split("/")[3].split(".")[0].toUpperCase(), style: tungstenBoldFont(),),
                               )
