@@ -16,7 +16,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
+      appBar: AppBar( 
         backgroundColor: Colors.transparent,
         leading: IconButton(
             icon: const ImageIcon(

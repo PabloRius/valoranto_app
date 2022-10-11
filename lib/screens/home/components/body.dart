@@ -31,14 +31,18 @@ class _BodyState extends State<Body> {
   }
 
   Text mapTitleGen(String text, double opacity){
-    return Text(text, style: tungstenBoldFont(Colors.white, 125, opacity: opacity),);
+    if (text != "MAIN_WALLPAPER"){
+      return Text(text, style: tungstenBoldFont(Colors.white, 125, opacity: opacity),);
+    }else{
+      return Text("", style: tungstenBoldFont(Colors.white, 125, opacity: opacity),);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: [
-        Container(
+        Container( 
           decoration:  BoxDecoration(
             image: DecorationImage(
               image: AssetImage(_currentMap), //Background Image
