@@ -26,9 +26,9 @@ class _BodyState extends State<Body> {
 
   bool isCurrentAgent(index){
     if (_currentAgent != ""){
-      String name_i = index.split("/")[3].split(".")[0];
-      String name_c = _currentAgent.split("/")[3].split(".")[0];
-      if (name_i == name_c){return true;}else{return false;}
+      String nameI = index.split("/")[3].split(".")[0];
+      String nameC = _currentAgent.split("/")[3].split(".")[0];
+      if (nameI == nameC){return true;}else{return false;}
     }
     return false;
   }
