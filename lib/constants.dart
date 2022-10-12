@@ -58,6 +58,28 @@ final carouselImages = [
   "assets/images/split.jpg",
 ];
 
+final carouselAgents = [
+  "assets/images/Agent_Icons/Jett.png",
+  "assets/images/Agent_Icons/Raze.png",
+  "assets/images/Agent_Icons/Breach.png",
+  "assets/images/Agent_Icons/Omen.png",
+  "assets/images/Agent_Icons/Brimstone.png",
+  "assets/images/Agent_Icons/Phoenix.png",
+  "assets/images/Agent_Icons/Sage.png",
+  "assets/images/Agent_Icons/Sova.png",
+  "assets/images/Agent_Icons/Viper.png",
+  "assets/images/Agent_Icons/Cypher.png",
+  "assets/images/Agent_Icons/Reyna.png",
+  "assets/images/Agent_Icons/Killjoy.png",
+  "assets/images/Agent_Icons/Skye.png",
+  "assets/images/Agent_Icons/Yoru.png",
+  "assets/images/Agent_Icons/Astra.png",
+  "assets/images/Agent_Icons/Kayo.png",
+  "assets/images/Agent_Icons/Chamber.png",
+  "assets/images/Agent_Icons/Neon.png",
+  "assets/images/Agent_Icons/Fade.png",
+];
+
 
 
 TextStyle tungstenBoldFont(Color color, double size, {double opacity = 1}){

@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
-import '../../../globals.dart';
-import '../../second_screen/agent_selection_screen.dart';
 
 
 
@@ -89,10 +87,7 @@ class LockInButton extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                 child: ElevatedButton(
                   style: elevatedButtonStyle,
-                    onPressed: (){if (selectedMap != "None") {Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => AgentScreen()),
-                    );}
-                    },
+                    onPressed: (){},
                     child: const Text('LOCK IN')
                 )
             )
