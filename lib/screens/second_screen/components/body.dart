@@ -112,20 +112,18 @@ class _BodyState extends State<Body> {
                 _toggleBackground(i);
                 selectedMap = i;
               },
-              child: Stack(
-                children: [
-                  Container(
+              child: Container(
                     width: MediaQuery.of(context).size.width,
                     height: MediaQuery.of(context).size.height,
                     margin: const EdgeInsets.symmetric(horizontal: 5.0),
                     decoration: BoxDecoration(
-                        border: Border.all(color: isCurrentMap(i) ? Colors.redAccent : Colors.transparent, width: 2.0)
+                        color: kGray800,
+                        border: Border.all(
+                            color: isCurrentMap(i) ? Colors.redAccent : Colors.transparent,
+                            width: isCurrentMap(i) ? 2.0 : 0.0)
                     ),
-                    child: Image.asset(i, fit: BoxFit.cover),
-                  ),
-                  Center(child: Text(i.split("/")[3].split(".")[0].toUpperCase(), style: tungstenBoldFont(Colors.white, 26),))
-                ],
-              ),
+                    child: Image.asset(i, fit: BoxFit.cover,),
+                  )
             );
           },
         );
