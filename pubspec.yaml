@@ -64,7 +64,9 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
-    - assets/images/Agent_Icons/
+    - assets/images/Agent_Icons/    - assets/images/Map_Icons/
+    - assets/images/Agent_Body/
+
 
 
   fonts:

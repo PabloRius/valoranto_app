@@ -48,14 +48,14 @@ const kGrayMain = Color(0xff1F2326);
 
 
 final carouselImages = [
-  "assets/images/Map_Icons/ascent.jpg",
-  "assets/images/Map_Icons/bind.jpg",
-  "assets/images/Map_Icons/breeze.jpg",
-  "assets/images/Map_Icons/fracture.jpg",
-  "assets/images/Map_Icons/heaven.jpg",
-  "assets/images/Map_Icons/icebox.jpg",
-  "assets/images/Map_Icons/pearl.jpg",
-  "assets/images/Map_Icons/split.jpg",
+  "assets/images/ascent.jpg",
+  "assets/images/bind.jpg",
+  "assets/images/breeze.jpg",
+  "assets/images/fracture.jpg",
+  "assets/images/heaven.jpg",
+  "assets/images/icebox.jpg",
+  "assets/images/pearl.jpg",
+  "assets/images/split.jpg",
 ];
 
 final carouselAgents = [

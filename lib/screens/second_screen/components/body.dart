@@ -15,10 +15,12 @@ class Body extends StatefulWidget {
 class _BodyState extends State<Body> {
 
   String _currentMap = "assets/images/Main_Wallpaper.png";
-
-  void _toggleBackground(index){
+  String _curentAgent = "";
+  
+  void _toggleAgent(index){
     setState(() {
-      _currentMap = index;
+      var lista = index.split("/");
+      _curentAgent = "assets/images/Agent_Body/${lista[3]}";
     });
   }
 
@@ -30,11 +32,17 @@ class _BodyState extends State<Body> {
     return false;
   }
 
-  Text mapTitleGen(String text, double opacity){
-    if (text != "MAIN_WALLPAPER"){
-      return Text(text, style: tungstenBoldFont(Colors.white, 125, opacity: opacity),);
+  FittedBox AgentTitleGen(String text, double opacity){
+    if (_curentAgent != ""){
+      String aux = text.split("/")[3].split(".")[0].toUpperCase();
+      return FittedBox(
+          fit: BoxFit.fitWidth,
+          child: Text(
+            aux,
+            style: tungstenBoldFont(Colors.white, 200, opacity: opacity),));
     }else{
-      return Text("", style: tungstenBoldFont(Colors.white, 125, opacity: opacity),);
+      String aux = selectedMap.split("/")[2].split(".")[0].toUpperCase();
+      return FittedBox(child: Text(aux, style: tungstenBoldFont(Colors.white, 125, opacity: opacity),));
     }
   }
 
@@ -45,7 +53,7 @@ class _BodyState extends State<Body> {
         Container(
           decoration:  BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(_currentMap), //Background Image
+              image: AssetImage(selectedMap), //Background Image
               fit: BoxFit.cover,
             ),
           ),
@@ -53,10 +61,10 @@ class _BodyState extends State<Body> {
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.7)),
-            Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.6)),
-            Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.5)),
-            Center(child: mapTitleGen(_currentMap.split("/")[2].split(".")[0].toUpperCase(), 0.4)),
+            Center(child: AgentTitleGen(_curentAgent, 0.7)),
+            Center(child: AgentTitleGen(_curentAgent, 0.6)),
+            Center(child: AgentTitleGen(_curentAgent, 0.5)),
+            Center(child: AgentTitleGen(_curentAgent, 0.4)),
           ],),
         Container(
           decoration: const BoxDecoration(
@@ -70,6 +78,18 @@ class _BodyState extends State<Body> {
               )
           ) ,
         ),
+        Center(
+          child: Container(
+            height: 650,
+            decoration:  BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(_curentAgent), //Background Image
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        ),
+
         Align(
           alignment: Alignment.bottomCenter,
           child: Container(
@@ -109,8 +129,9 @@ class _BodyState extends State<Body> {
           builder: (BuildContext context) {
             return GestureDetector(
               onTap: (){
-                _toggleBackground(i);
-                selectedMap = i;
+                _toggleAgent(i);
+                selectedAgent = i;
+                print(i.split("/"));
               },
               child: Container(
                     width: MediaQuery.of(context).size.width,
