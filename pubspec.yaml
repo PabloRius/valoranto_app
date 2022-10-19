@@ -37,6 +37,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.1.1
+  video_player: ^2.4.7
 
 dev_dependencies:
   flutter_test:
@@ -66,6 +67,32 @@ flutter:
     - assets/icons/
     - assets/images/Agent_Icons/
     - assets/images/Agent_Body/
+    - assets/images/Abilities/Viper/
+    - assets/images/Abilities/Astra/
+    - assets/Fonts/
+    - assets/images/Abilities/Yoru/
+    - assets/images/Abilities/Sova/
+    - assets/images/Abilities/Skye/
+    - assets/images/Abilities/Brimstone/
+    - assets/images/Abilities/Sage/
+    - assets/images/Abilities/Phoenix/
+    - assets/images/Abilities/Raze/
+    - assets/images/Abilities/Omen/
+    - assets/images/Abilities/Neon/
+    - assets/images/Abilities/Killjoy/
+    - assets/images/Abilities/Chamber/
+    - assets/images/Abilities/Harbor/
+    - assets/images/Abilities/Kayo/
+    - assets/images/Abilities/Jett/
+    - assets/images/Abilities/Fade/
+    - assets/images/Abilities/
+    - assets/
+    - assets/images/Abilities/Cypher/
+    - assets/images/Abilities/Breach/
+    - assets/images/Abilities/Reyna/
+    - assets/videos/Abilities/Viper/
+    - assets/videos/Abilities/
+    - assets/videos/
 
 
 

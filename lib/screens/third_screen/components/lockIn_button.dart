@@ -18,7 +18,7 @@ class LockInButton extends StatelessWidget {
     final elevatedButtonStyle = ElevatedButton.styleFrom(
       backgroundColor: kRedMain,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(0)
+          borderRadius: BorderRadius.circular(0)
       ),
       fixedSize: const Size(400, 50),
     );
@@ -88,11 +88,8 @@ class LockInButton extends StatelessWidget {
             Padding(
                 padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                 child: ElevatedButton(
-                  style: elevatedButtonStyle,
-                    onPressed: (){if (selectedAgent != "None") {Navigator.push(
-                      context, MaterialPageRoute(builder: (context) => AbilitiesScreen()),
-                    );}
-                    },
+                    style: elevatedButtonStyle,
+                    onPressed: (){},
                     child: const Text('LOCK IN')
                 )
             )
