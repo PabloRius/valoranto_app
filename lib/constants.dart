@@ -78,6 +78,7 @@ final carouselAgents = [
   "assets/images/Agent_Icons/Chamber.png",
   "assets/images/Agent_Icons/Neon.png",
   "assets/images/Agent_Icons/Fade.png",
+  "assets/images/Agent_Icons/Harbor.png",
 ];
 
 
