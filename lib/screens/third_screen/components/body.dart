@@ -17,6 +17,24 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
 
+  String _currentAbility = "";
+
+  bool isCurrentAbility(index){
+    if (_currentAbility != ""){
+      String nameI = index.split("/")[4].split(".")[0];
+      String nameC = _currentAbility.split("/")[4].split(".")[0];
+      if (nameI == nameC){return true;}else{return false;}
+    }
+    return false;
+  }
+
+  void _toggleAbility(index){
+    setState(() {
+      var lista = index.split("/");
+      _currentAbility = "assets/images/Abilities/Viper/${lista[4]}";
+    });
+  }
+
   late VideoPlayerController _controller = VideoPlayerController.asset("assets/videos/Abilities/Viper/C_Viper.mp4");
 
   @override
@@ -92,14 +110,31 @@ class _BodyState extends State<Body> {
   Stack abilitiesContainer(BuildContext context) {
 
     return Stack(
+      alignment: AlignmentDirectional.bottomCenter,
       children: [
         Row(
-          children: [
-            genExpanded("assets/images/Abilities/Viper/C_Viper.png"),
-            genExpanded("assets/images/Abilities/Viper/Q_Viper.png"),
-            genExpanded("assets/images/Abilities/Viper/E_Viper.png"),
-            genExpanded("assets/images/Abilities/Viper/X_Viper.png"),
-          ],
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:
+          viperAbilities.map((i){
+            return GestureDetector(
+                onTap: (){
+                  _toggleAbility(i);
+                  selectedAgent = i;
+                },
+                child: Container(
+                  width: 70,
+                  height: 70,
+                  margin: const EdgeInsets.symmetric(horizontal: 5.0),
+                  decoration: BoxDecoration(
+                      color: isCurrentAbility(i) ? kGray300 : kGray90,
+                      border: Border.all(
+                          color: Colors.transparent,
+                          width: isCurrentAbility(i) ? 0.0 : 2.0)
+                  ),
+                  child: Image.asset(i, fit: BoxFit.cover,),
+                )
+            );
+          }).toList(),
         ),
       ],
     );
