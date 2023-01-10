@@ -38,6 +38,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   carousel_slider: ^4.1.1
   video_player: ^2.4.7
+  intl: ^0.17.0
+  http: ^0.13.5
 
 dev_dependencies:
   flutter_test:
@@ -93,6 +95,8 @@ flutter:
     - assets/videos/Abilities/Viper/
     - assets/videos/Abilities/
     - assets/videos/
+    - assets/images/Map_Icons/
+
 
 
 

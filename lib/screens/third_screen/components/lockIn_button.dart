@@ -39,15 +39,15 @@ class LockInButton extends StatelessWidget {
                     decoration: const BoxDecoration(
                         border: Border(
                           left: BorderSide(
-                            color: Colors.white,
+                            color: Colors.black,
                             width: 1,
                           ),
                           top: BorderSide(
-                            color: Colors.white,
+                            color: Colors.black,
                             width: 1,
                           ),
                           right: BorderSide(
-                            color: Colors.white,
+                            color: Colors.black,
                             width: 1,
                           ),
                         )
@@ -67,15 +67,15 @@ class LockInButton extends StatelessWidget {
                     decoration: const BoxDecoration(
                         border: Border(
                           left: BorderSide(
-                            color: Colors.white,
+                            color: Colors.black,
                             width: 1,
                           ),
                           bottom: BorderSide(
-                            color: Colors.white,
+                            color: Colors.black,
                             width: 1,
                           ),
                           right: BorderSide(
-                            color: Colors.white,
+                            color: Colors.black,
                             width: 1,
                           ),
                         )

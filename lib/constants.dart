@@ -45,6 +45,8 @@ const kGray900 = Color(0xff14181B);
 
 const kGrayMain = Color(0xff1F2326);
 
+const kPaper = Color(0xffECE8E1);
+
 
 
 final carouselImages = [
