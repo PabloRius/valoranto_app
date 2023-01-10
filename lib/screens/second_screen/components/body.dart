@@ -21,6 +21,7 @@ class _BodyState extends State<Body> {
     setState(() {
       var lista = index.split("/");
       _currentAgent = "assets/images/Agent_Body/${lista[3]}";
+      selectedAgent = lista[3].split(".")[0];
     });
   }
 
@@ -41,7 +42,7 @@ class _BodyState extends State<Body> {
               style: tungstenBoldFont(Colors.white, 200, opacity: opacity),
       );
     }else{
-      String aux = selectedMap.split("/")[2].split(".")[0].toUpperCase();
+      String aux = selectedMap.toUpperCase();
       return Text(
               aux,
               style: tungstenBoldFont(Colors.white, 125, opacity: opacity),
@@ -66,7 +67,7 @@ class _BodyState extends State<Body> {
     return Container(
         decoration:  BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(selectedMap), //Background Image
+            image: AssetImage("assets/images/$selectedMap.jpg"), //Background Image
             fit: BoxFit.cover,
           ),
         ),
@@ -162,7 +163,6 @@ class _BodyState extends State<Body> {
             return GestureDetector(
               onTap: (){
                 _toggleAgent(i);
-                selectedAgent = i;
               },
               child: Container(
                     width: MediaQuery.of(context).size.width,

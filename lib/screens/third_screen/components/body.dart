@@ -20,17 +20,16 @@ class _BodyState extends State<Body> {
 
   bool isCurrentAbility(index){
     if (_currentAbility != ""){
-      String nameI = index.split("/")[4].split(".")[0];
-      String nameC = _currentAbility.split("/")[4].split(".")[0];
-      if (nameI == nameC){return true;}else{return false;}
+      String nameI = "${index}_${selectedAgent}";
+      if (nameI == _currentAbility){return true;}else{return false;}
     }
     return false;
   }
 
   void _toggleAbility(index){
     setState(() {
-      var lista = index.split("/");
-      _currentAbility = "assets/images/Abilities/Viper/${lista[4]}";
+      _currentAbility = "${index}_$selectedAgent";
+      selectedAbility = _currentAbility;
     });
   }
 
@@ -114,11 +113,10 @@ class _BodyState extends State<Body> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children:
-          viperAbilities.map((i){
+          abilitiesMap.map((i){
             return GestureDetector(
                 onTap: (){
                   _toggleAbility(i);
-                  selectedAgent = i;
                 },
                 child: Container(
                   width: 70,
@@ -130,7 +128,7 @@ class _BodyState extends State<Body> {
                           color: Colors.transparent,
                           width: isCurrentAbility(i) ? 0.0 : 2.0)
                   ),
-                  child: Image.asset(i, fit: BoxFit.cover,),
+                  child: Image.asset("assets/images/Abilities/$selectedAgent/${i}_$selectedAgent.png", fit: BoxFit.cover,),
                 )
             );
           }).toList(),

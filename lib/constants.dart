@@ -58,11 +58,11 @@ final carouselImages = [
   "assets/images/split.jpg",
 ];
 
-final viperAbilities = [
-  "assets/images/Abilities/Viper/C_Viper.png",
-  "assets/images/Abilities/Viper/Q_Viper.png",
-  "assets/images/Abilities/Viper/E_Viper.png",
-  "assets/images/Abilities/Viper/X_Viper.png",
+final abilitiesMap = [
+  "C",
+  "Q",
+  "E",
+  "X",
 ];
 
 final carouselAgents = [

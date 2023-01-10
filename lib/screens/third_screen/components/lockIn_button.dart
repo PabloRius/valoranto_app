@@ -89,7 +89,11 @@ class LockInButton extends StatelessWidget {
                 padding: const EdgeInsets.fromLTRB(8, 0, 8, 0),
                 child: ElevatedButton(
                     style: elevatedButtonStyle,
-                    onPressed: (){},
+                    onPressed: (){
+                      print("Selected Map: $selectedMap\n");
+                      print("Selected Agent: $selectedAgent\n");
+                      print("Selected Ability: $selectedAbility\n");
+                    },
                     child: const Text('LOCK IN')
                 )
             )

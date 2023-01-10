@@ -110,7 +110,8 @@ class _BodyState extends State<Body> {
                     return GestureDetector(
                       onTap: (){
                         _toggleBackground(i);
-                        selectedMap = i;
+                        print(i);
+                        selectedMap = i.split("/")[2].split(".")[0];
                       },
                       child: Stack(
                         children: [
