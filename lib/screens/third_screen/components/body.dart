@@ -1,5 +1,7 @@
 import 'dart:collection';
+import 'dart:convert' as convert;
 
+import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 import '../../../constants.dart';
@@ -16,6 +18,21 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
   String _currentAbility = "";
+  late Future<String> presentations;
+  Future<void> setPresentation(String ability) async{
+    //var url = Uri.https('pablorius.github.io','presentations/$selectedAgent.json');
+    var url = Uri.https('pablorius.github.io','presentations/$selectedAgent.json');
+    final response = await http.get(url);
+    var video = convert.json.decode(response.body)[ability];
+    setState(() {
+        _controller = VideoPlayerController.network(video)..initialize().then((_){
+        _controller.play();
+        _controller.setLooping(true);
+        setState(() {
+        });
+      });
+    });
+  }
 
   bool isCurrentAbility(index) {
     if (_currentAbility != "") {
@@ -33,22 +50,23 @@ class _BodyState extends State<Body> {
     setState(() {
       _currentAbility = "${index}_$selectedAgent";
       selectedAbility = _currentAbility;
+      print(index);
+      setPresentation(index);
     });
   }
 
   late VideoPlayerController _controller =
-      VideoPlayerController.asset("assets/videos/Abilities/Viper/C_Viper.mp4");
+      VideoPlayerController.asset("assets/videos/Abilities/$selectedAgent/C_$selectedAgent.mp4");
 
   @override
   void initState() {
     super.initState();
-    _controller =
-        VideoPlayerController.asset("assets/videos/Abilities/Viper/C_Viper.mp4")
-          ..initialize().then((_) {
-            _controller.play();
-            _controller.setLooping(true);
-            setState(() {});
-          });
+    _controller = VideoPlayerController.asset("assets/videos/Abilities/$selectedAgent/C_$selectedAgent.mp4")..initialize().then((_){
+      _controller.play();
+      _controller.setLooping(true);
+      setState(() {
+      });
+    });
   }
 
   @override
@@ -93,7 +111,6 @@ class _BodyState extends State<Body> {
               onChanged: (bool state) {
                 //True = Attack
                 //False = Defense
-                print(state);
               },
               onDoubleTap: () {},
               onSwipe: () {},
