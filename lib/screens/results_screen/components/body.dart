@@ -1,12 +1,7 @@
-import 'dart:collection';
-import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
-import '../../../constants.dart';
-import '../../../globals.dart';
-import 'lockIn_button.dart';
 
 
 class Body extends StatefulWidget {
@@ -70,19 +65,17 @@ class _BodyState extends State<Body> {
     );
   }
 
-  Container buildLineups() {
-    return Container(
-      child: Column(
-        children: [
-          _controller.value.isInitialized ? AspectRatio(
-            aspectRatio: _controller.value.aspectRatio,
-              child: VideoPlayer(_controller),
-              
-          )
-              :Container(),
-          Text(getLineups().toString())
-        ],
-      ),
+  Column buildLineups() {
+    return Column(
+      children: [
+        _controller.value.isInitialized ? AspectRatio(
+          aspectRatio: _controller.value.aspectRatio,
+            child: VideoPlayer(_controller),
+
+        )
+            :Container(),
+        Text(getLineups().toString())
+      ],
     );
   }
 }

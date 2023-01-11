@@ -14,7 +14,6 @@ class Body extends StatefulWidget {
 
 class _BodyState extends State<Body> {
 
-  final String _currentMap = "assets/images/Main_Wallpaper.png";
   String _currentAgent = "";
   
   void _toggleAgent(index){

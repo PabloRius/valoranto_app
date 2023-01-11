@@ -1,4 +1,3 @@
-import 'dart:collection';
 import 'dart:convert' as convert;
 
 import 'package:http/http.dart' as http;
@@ -36,7 +35,7 @@ class _BodyState extends State<Body> {
 
   bool isCurrentAbility(index) {
     if (_currentAbility != "") {
-      String nameI = "${index}_${selectedAgent}";
+      String nameI = "${index}_$selectedAgent";
       if (nameI == _currentAbility) {
         return true;
       } else {
@@ -50,7 +49,6 @@ class _BodyState extends State<Body> {
     setState(() {
       _currentAbility = "${index}_$selectedAgent";
       selectedAbility = _currentAbility;
-      print(index);
       setPresentation(index);
     });
   }
@@ -111,6 +109,7 @@ class _BodyState extends State<Body> {
               onChanged: (bool state) {
                 //True = Attack
                 //False = Defense
+                state ? selectedMap = "Attack" : selectedMap = "Defense";
               },
               onDoubleTap: () {},
               onSwipe: () {},

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'components/body.dart';
-import '../home/home_screen.dart';
-import '../second_screen/agent_selection_screen.dart';
-import "../third_screen/abilities_selection.dart";
 
 class AbilitiesScreen extends StatefulWidget {
   const AbilitiesScreen({super.key});
@@ -27,7 +24,7 @@ class _AbilitiesScreenState extends State<AbilitiesScreen> {
               color: Colors.white,
             ),
             onPressed: () => {Navigator.push(
-                context, MaterialPageRoute(builder: (context) => AbilitiesScreen()))}
+                context, MaterialPageRoute(builder: (context) => const AbilitiesScreen()))}
         ),
         title: const Text("Lineups"),
         centerTitle: true,

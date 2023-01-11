@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:valoranto/globals.dart';
 import '../../../constants.dart';
-import '../../third_screen/abilities_selection.dart';
 
 
 
@@ -90,9 +88,6 @@ class LockInButton extends StatelessWidget {
                 child: ElevatedButton(
                     style: elevatedButtonStyle,
                     onPressed: (){
-                      print("Selected Map: $selectedMap\n");
-                      print("Selected Agent: $selectedAgent\n");
-                      print("Selected Ability: $selectedAbility\n");
                     },
                     child: const Text('LOCK IN')
                 )

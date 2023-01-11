@@ -89,11 +89,8 @@ class LockInButton extends StatelessWidget {
                 child: ElevatedButton(
                     style: elevatedButtonStyle,
                     onPressed: (){
-                      print("Selected Map: $selectedMap\n");
-                      print("Selected Agent: $selectedAgent\n");
-                      print("Selected Ability: $selectedAbility\n");
                       if (selectedAgent != "None") {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => AbilitiesScreen()),
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => const AbilitiesScreen()),
                       );}
                     },
                     child: const Text('LOCK IN')
