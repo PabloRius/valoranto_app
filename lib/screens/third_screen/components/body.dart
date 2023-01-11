@@ -168,6 +168,7 @@ class _BodyState extends State<Body> {
       alignment: AlignmentDirectional.bottomCenter,
       children: [
         Row(
+
           mainAxisAlignment: MainAxisAlignment.center,
           children: abilitiesMap.map((i) {
             return GestureDetector(
@@ -175,7 +176,7 @@ class _BodyState extends State<Body> {
                   _toggleAbility(i);
                 },
                 child: Container(
-                  width: 88,
+                  width: MediaQuery.of(context).size.width/5,
                   height: 88,
                   margin: const EdgeInsets.symmetric(horizontal: 5.0),
                   decoration: BoxDecoration(
